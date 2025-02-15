@@ -1,6 +1,8 @@
-const links = document.querySelectorAll('link');
+const links = document.querySelectorAll('.link');
 const sections = document.querySelectorAll('section');
+
 let activeLink = 0;
+
 links.forEach((link, i) => {
     link.addEventListener('click', () => {
         if(activeLink != i){
@@ -11,65 +13,65 @@ links.forEach((link, i) => {
             setTimeout(() => {
                 activeLink = i;
                 sections[i].classList.add('active');
-            },1000)
+            }, 1000);
         }
     })
 })
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDUvUi_3PTE3gsugbLwqMNk6sDYXffwoxk",
-    authDomain: "my-portfolio-bbeba.firebaseapp.com",
-    projectId: "my-portfolio-bbeba",
-    storageBucket: "my-portfolio-bbeba.firebasestorage.app",
-    messagingSenderId: "736928323294",
-    appId: "1:736928323294:web:0d7397e16cf030cd0fd44f",
-    measurementId: "G-D1TSE092ZW"
-  };
+    apiKey: "AIzaSyAyYJierK8A6REwQOOCzHBRv7dquOgINnM",
+    authDomain: "portfolio-tutorial-ee6e7.firebaseapp.com",
+    projectId: "portfolio-tutorial-ee6e7",
+    storageBucket: "portfolio-tutorial-ee6e7.firebasestorage.app",
+    messagingSenderId: "845742522208",
+    appId: "1:845742522208:web:9f85c5e6a84b6094e92805",
+    measurementId: "G-7XSH8P7BBZ"
+};
 
-// intialise the firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-//ensure that firebase is intialized after
-
-if(!firebase.app.length){
+// Ensure Firebase is loaded before initializing
+if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
-const db = firebase.firestore(); //db
 
-//handle contact form submittion
+const db = firebase.firestore();  // ✅ Now `db` is properly defined
 
-document.addEventListener('DOMContentLoaded', () => {
+// Handle Contact Form Submission
+document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById('contactForm');
 
-    if(contactForm){
+    if (contactForm) {  // Ensure the form exists
         contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default form submission
 
+            // Get form data
             const name = document.getElementById('name').value;
-            const mail = document.getElementById('email').value;
+            const email = document.getElementById('email').value;
             const message = document.getElementById('msg').value;
 
-            if(!name || !email || !message){
-                alert("All fields are mandatory to fill.!!")
+            if(!message || !email || !name) {
+                alert("All the fields are mandatory to fill.");
                 return;
             }
 
-            //store the data in the database
+            // Store data in Firestore
             db.collection('contacts').add({
                 name: name,
                 email: email,
                 message: message
             })
             .then(() => {
-                console.log("Contact form submitted successfully!");
+                console.log('Contact form submitted successfully!');
                 alert('Contact form submitted successfully!');
             })
             .catch((error) => {
-                console.log("Error in submitting the form!");
-                alert('Error in submitting the form!');
+                console.error('Error submitting contact form:', error);
+                alert('Error submitting contact form');
             });
-        });  
-    }else{
+        });
+    } else {
         console.error("Contact form not found in the document.");
     }
 });
