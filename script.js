@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
 
             const name = document.getElementById('name').value;
-            const mail = document.getElementById('mail').value;
+            const mail = document.getElementById('email').value;
             const message = document.getElementById('msg').value;
 
-            if(!message || !name || !mail){
+            if(!name || !email || !message){
                 alert("All fields are mandatory to fill.!!")
                 return;
             }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //store the data in the database
             db.collection('contacts').add({
                 name: name,
-                mail: mail,
+                email: email,
                 message: message
             })
             .then(() => {
@@ -72,4 +72,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }else{
         console.error("Contact form not found in the document.");
     }
-})
+});
