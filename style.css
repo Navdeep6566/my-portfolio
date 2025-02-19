@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
+    box-sizing: border-box;}
 body{
     width: 100%;
     max-width: 1400px;
@@ -29,8 +28,7 @@ body{
 
 .link-group{
     list-style: none;
-    display: flex;
-}
+    display: flex;}
 
 .link a{
     color: #fff;
@@ -41,8 +39,7 @@ body{
     margin: 0 20px;
     line-height: 80px;
     transition: .5s;
-    font-size: 20px;
-}
+    font-size: 20px;}
 
 .link a:hover, .link.active a{
     opacity: 1;
@@ -53,7 +50,8 @@ body{
     height: 100vh;
     padding: 0 150px;
     display: flex;
-    align-items: center;
+    align-items:center;
+    
     /* position: relative; */
     position: fixed;
     top: 0;
@@ -117,8 +115,8 @@ body{
 }
 
 .project-card{
-    height: 400px;
-    position: relative;
+    height:  400px;
+    position:  relative;
 }
 
 .project-img{
@@ -150,8 +148,7 @@ body{
     margin: 40px;
     font-size: 20px;
     line-height: 30px;
-    text-align: center;
-}
+    text-align: center;}
 
 .project-btn-grp{
     display: grid;
@@ -166,8 +163,7 @@ body{
     border: none;
     background: #000;
     color: #fff;
-    cursor: pointer;
-}
+    cursor: pointer;}
 
 .project-btn.live{
     background: none;
@@ -417,11 +413,7 @@ body{
     background: #3dca5c;
 }
 .card:nth-child(5), .card:nth-child(5):before{
-    background: #565252;
-}
-.card:nth-child(6), .card:nth-child(6):before{
-    background: #4fa0ff;
-}
+    background: #565252;}
 
 .card:nth-child(even) .card-body:before{
     content: '';
@@ -505,8 +497,7 @@ body{
 .map iframe{
     width: 100%;
     height: 100%;
-    border-radius: 5px;
-}
+    border-radius: 5px;}
 
 /* Responsive screen */
 
