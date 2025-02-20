@@ -19,13 +19,14 @@ links.forEach((link, i) => {
 })
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAyYJierK8A6REwQOOCzHBRv7dquOgINnM",
-    authDomain: "portfolio-tutorial-ee6e7.firebaseapp.com",
-    projectId: "portfolio-tutorial-ee6e7",
-    storageBucket: "portfolio-tutorial-ee6e7.firebasestorage.app",
-    messagingSenderId: "845742522208",
-    appId: "1:845742522208:web:9f85c5e6a84b6094e92805",
-    measurementId: "G-7XSH8P7BBZ"
+    apiKey: "AIzaSyBkZTzosDzSW_X2Wu2XU5J1i32bt3rMYDA",
+    authDomain: "portfolio-40afa.firebaseapp.com",
+    databaseURL: "https://portfolio-40afa-default-rtdb.firebaseio.com",
+    projectId: "portfolio-40afa",
+    storageBucket: "portfolio-40afa.firebasestorage.app",
+    messagingSenderId: "305271479965",
+    appId: "1:305271479965:web:22fc0fbd75626dd2adfe74",
+    measurementId: "G-ZJDPLRWZJ8"
 };
 
 // Initialize Firebase
@@ -75,3 +76,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Contact form not found in the document.");
     }
 });
+
+
+let menuIcon = document.getElementById('menu-icon');
+let navbar = document.getElementById('navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('fa-xmark');
+    navbar.classList.toggle('active');
+}
+
+
+
+
+ScrollReveal({
+    distance : '60px',
+    duration: 1500,
+    delay : 200
+});
+
+
+ScrollReveal().reveal('.home-content, heading',{origin : 'top'});
+ScrollReveal().reveal('.home-img',{origin : 'bottom'});
+ScrollReveal().reveal('.project-card, .about-info, .right , .map',{origin : 'right'});
+ScrollReveal().reveal('.about-img-container, .skill-card, .left, .contact-form',{origin : 'left'});
